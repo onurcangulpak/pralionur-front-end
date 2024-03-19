@@ -1,0 +1,47 @@
+.container1 {
+  background-color: antiquewhite;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+}
+.oneProductContainer {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  align-items: center;
+  justify-content: center;
+  margin: 20px;
+  width: 30%;
+  max-width: 1200px;
+  padding: 0 15px;
+  margin-top: 50px;
+  border: 1px solid black;
+}
+.oneProductContainer img {
+  width: 100%;
+  max-width: 300px;
+  min-width: 200px;
+  height: auto;
+  margin: 20px;
+}
+.oneProductContainer h3 {
+  font-weight: 600;
+  margin: 20px;
+}
+.oneProductContainer p {
+  font-weight: 400;
+  margin: 10px;
+}
+@media screen and (max-width: 768px) {
+  .container1 {
+    width: 40%; /* This should be changed to 100% to make the container full width */
+  }
+}
+@media screen and (max-width: 480px) {
+  .container1 {
+    width: 90%; /* This should be changed to 100% to make the container full width */
+  }
+}
