@@ -3,7 +3,6 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-
   padding: 15px 7%;
   transition: 0.5s;
   z-index: 1000;
@@ -15,22 +14,26 @@
   width: 160px;
   cursor: pointer;
 }
+
 ul {
   flex: 1;
   list-style: none;
   text-align: center;
 }
+
 ul li {
   display: inline-block;
   margin: 10px 20px;
   font-size: 16px;
   cursor: pointer;
 }
+
 .toggle-icon {
   width: 60px;
   cursor: pointer;
   margin-left: 50px;
 }
+
 .search-box {
   display: flex;
   align-items: center;
@@ -38,6 +41,7 @@ ul li {
   padding: 10px 20px;
   border-radius: 50px;
 }
+
 .search-box input {
   padding: 8px;
   background-color: transparent;
@@ -51,10 +55,12 @@ ul li {
 .search-box input::placeholder {
   color: #fff;
 }
+
 .search-box img {
   width: 20px;
   cursor: pointer;
 }
+
 .dark .navbar {
   background: #000;
   color: #fff;
@@ -63,6 +69,35 @@ ul li {
 .dark .search-box {
   background: #fff;
 }
+
 .dark .search-box input::placeholder {
   color: #222;
+}
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #333;
+  min-width: 160px;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown-content a {
+  color: white;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: #555;
 }

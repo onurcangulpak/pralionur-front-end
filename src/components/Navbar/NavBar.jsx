@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./NavBar.css";
 import logo_light from "../../assets/logo-black.png";
 import logo_dark from "../../assets/logo-white.png";
@@ -7,9 +7,15 @@ import search_icon_dark from "../../assets/search-b.png";
 import toggle_light from "../../assets/night.png";
 import toggle_dark from "../../assets/day.png";
 import { Link, useLocation } from "react-router-dom";
-
 const NavBar = ({ theme, setTheme }) => {
   const location = useLocation();
+
+  const [showDropdown, setShowDropdown] = useState(false);
+
+  const toggleDropdown = () => {
+    setShowDropdown(!showDropdown);
+  };
+
   const isHome = location.pathname === "/";
   const isProducts = location.pathname === "/products";
   const isFeatures = location.pathname === "/features";
@@ -33,7 +39,21 @@ const NavBar = ({ theme, setTheme }) => {
         )}
         {!isProducts && (
           <li>
-            <Link to="/products">Products</Link>
+            <div className="dropdown">
+              <li
+                className="dropdown"
+                onMouseEnter={toggleDropdown}
+                onMouseLeave={toggleDropdown}
+              >
+                <span>Products</span>
+                {showDropdown && (
+                  <div className="dropdown-content">
+                    <Link to="/men">Men</Link>
+                    <Link to="/ladies">Women</Link>
+                  </div>
+                )}
+              </li>
+            </div>
           </li>
         )}
         {!isFeatures && (
