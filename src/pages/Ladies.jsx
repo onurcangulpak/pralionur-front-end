@@ -26,7 +26,7 @@ const Ladies = () => {
   return (
     <div>
       <div>
-        <h2>All Ladies Models</h2>
+        <h2>All Ladies Modelss</h2>
         <div className="container1">
           {ladies.map((product) => (
             <div className="oneProductContainer" key={product.id}>
