@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./CreateAd.css";
+import NavBar from "../components/Navbar/NavBar";
 
 export const CreateAd = () => {
   const navigate = useNavigate();
@@ -50,6 +51,9 @@ export const CreateAd = () => {
 
   return (
     <div>
+      <div>
+        <NavBar />
+      </div>
       <form onSubmit={handleCreateAd}>
         <h2>Ad Details</h2>
         <div className="formContainer">

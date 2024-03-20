@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./Ladies.css";
 import { Link } from "react-router-dom";
+import NavBar from "../components/Navbar/NavBar";
 
 const AllNewAds = () => {
   const [allNew, setAllNew] = useState(null);
@@ -29,7 +30,9 @@ const AllNewAds = () => {
   return (
     <div>
       <div>
-        <h2>All New Ads</h2>
+        <NavBar />
+      </div>
+      <div>
         <div className="container1">
           {allNew.map((product) => (
             <div className="oneProductContainer" key={product.id}>

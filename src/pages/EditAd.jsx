@@ -2,24 +2,23 @@ import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import "./CreateAd.css";
 import axios from "axios";
+import NavBar from "../components/Navbar/NavBar";
 
 const EditAd = () => {
   const navigate = useNavigate();
   const { productId } = useParams();
   const [editAd, setEditAd] = useState(null);
 
-  
-    const [title, setTitle] = useState("");
-    const [category, setCategory] = useState("");
-    const [condition, setCondition] = useState("");
-    const [description, setDescription] = useState("");
-    const [price, setPrice] = useState("");
-    const [imageUrl, setImageUrl] = useState("");
-    const [email, setEmail] = useState("");
-    const [phone, setPhone] = useState("");
-    const [postCode, setPostCode] = useState("");
-    const [street, setStreet] = useState("");
-  
+  const [title, setTitle] = useState("");
+  const [category, setCategory] = useState("");
+  const [condition, setCondition] = useState("");
+  const [description, setDescription] = useState("");
+  const [price, setPrice] = useState("");
+  const [imageUrl, setImageUrl] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [postCode, setPostCode] = useState("");
+  const [street, setStreet] = useState("");
 
   // ******************* get the information of the ad *****************
   useEffect(() => {
@@ -65,21 +64,17 @@ const EditAd = () => {
         console.log(err);
       };
     }
-// ******************* delete the old ad *******************
-try {
-    const response = await fetch(
-      `http://localhost:5001/new/${productId}`,
-      {
+    // ******************* delete the old ad *******************
+    try {
+      const response = await fetch(`http://localhost:5001/new/${productId}`, {
         method: "DELETE",
-      }
-    );
-    const parsed = await response.json();
-    console.log("You deleted the old ad successfully!", parsed);
-    navigate("/newads");
-  } catch (err) {
-    console.log(err);
-  }
-
+      });
+      const parsed = await response.json();
+      console.log("You deleted the old ad successfully!", parsed);
+      navigate("/newads");
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   if (!editAd) {
@@ -87,11 +82,14 @@ try {
   }
   return (
     <div>
+      <div>
+        <NavBar />
+      </div>
       <form onSubmit={handleCreateAd}>
         <h2>Ad Details</h2>
         <div className="formContainer">
           <label>
-            Title: 
+            Title:
             <input
               name="Title"
               type="text"
@@ -116,20 +114,23 @@ try {
             </select>
           </label>
           <label>
-            Condition: 
-            <select name="condition"   onChange={(event) => {
+            Condition:
+            <select
+              name="condition"
+              onChange={(event) => {
                 setCondition(event.target.value);
-              }}>
-                <option value="new">New</option>
-                <option value="likeNew">Like New</option>          
-                <option value="used">Used</option>
-                <option value="goodCondition">Good Condition</option>
-                <option value="fairCondition">Fair Condition</option>
-                <option value="poor Condition">Poor Condition</option>
+              }}
+            >
+              <option value="new">New</option>
+              <option value="likeNew">Like New</option>
+              <option value="used">Used</option>
+              <option value="goodCondition">Good Condition</option>
+              <option value="fairCondition">Fair Condition</option>
+              <option value="poor Condition">Poor Condition</option>
             </select>
-            </label>
-            <label>
-                Description: 
+          </label>
+          <label>
+            Description:
             <input
               name="Description"
               type="text"
@@ -141,7 +142,7 @@ try {
             />
           </label>
           <label>
-            Price: 
+            Price:
             <input
               name="Price"
               type="text"
@@ -150,22 +151,23 @@ try {
               onChange={(event) => {
                 setPrice(event.target.value);
               }}
-            /> EUR
+            />{" "}
+            EUR
           </label>
-            <label>
-                Image Url: 
-                <input
-                type="text"
-                name="imageUrl"
-                placeholder={editAd.imageUrl}
-                value={imageUrl}
-                onChange={(event)=>{
-                  setImageUrl(event.target.value)
-                }}
-                />
-                </label>
           <label>
-            Email: 
+            Image Url:
+            <input
+              type="text"
+              name="imageUrl"
+              placeholder={editAd.imageUrl}
+              value={imageUrl}
+              onChange={(event) => {
+                setImageUrl(event.target.value);
+              }}
+            />
+          </label>
+          <label>
+            Email:
             <input
               name="Email"
               type="email"
@@ -177,7 +179,7 @@ try {
             />
           </label>
           <label>
-            Phone Number: 
+            Phone Number:
             <input
               name="Phone"
               type="number"
@@ -189,7 +191,7 @@ try {
             />
           </label>
           <label>
-            Post Code: 
+            Post Code:
             <input
               name="PostCode"
               type="number"
@@ -201,7 +203,7 @@ try {
             />
           </label>
           <label>
-            Street, No. : 
+            Street, No. :
             <input
               name="Street"
               type="text"

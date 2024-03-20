@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./Ladies.css";
 import { Link } from "react-router-dom";
+import NavBar from "../components/Navbar/NavBar";
 
 export const Men = () => {
   const [Men, setMen] = useState(null);
@@ -29,7 +30,10 @@ export const Men = () => {
   return (
     <div>
       <div>
-        <h2>All Men Models</h2>
+        <div>
+          <NavBar/>
+        </div>
+
         <div className="container1">
           {Men.map((product) => (
             <div className="oneProductContainer" key={product.id}>

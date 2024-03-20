@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import "./DetailWomanProduct.css";
+import NavBar from "../components/Navbar/NavBar";
 
 const NewAd = () => {
   const [newAd, setNewAd] = useState(null);
@@ -53,38 +54,43 @@ const NewAd = () => {
   }
 
   return (
-    <div className="detail-container">
+    <>
       <div>
-        <img src={newAd.imageUrl} alt="" />
+        <NavBar />
       </div>
-      <div>
+      <div className="detail-container">
         <div>
-          <h2>{newAd.title}</h2>
-          <h3>{newAd.category}</h3>
-          <h3>{newAd.condition}</h3>
-          <h3>{newAd.description}</h3>
-          <h3>{newAd.price}</h3>
-          <button onClick={toggleText}>Connection ways</button>
-          {showText && <p>Email: {newAd.email}</p>}
-          {showText && <p>Phone Number: {newAd.phone}</p>}
-          {showText && <p>Address: {newAd.street}</p>}
-          {showText && <p>{newAd.postCode}</p>}
+          <img src={newAd.imageUrl} alt="" />
         </div>
         <div>
-          <Link to={"/editad/" + productId}>
-            <button>Edit the Ad</button>
-          </Link>
-          <button
-            onClick={() => {
-              handleDelete();
-              console.log("delete button clicked");
-            }}
-          >
-            Delete the Ad
-          </button>
+          <div>
+            <h2>{newAd.title}</h2>
+            <h3>{newAd.category}</h3>
+            <h3>{newAd.condition}</h3>
+            <h3>{newAd.description}</h3>
+            <h3>{newAd.price}</h3>
+            <button onClick={toggleText}>Connection ways</button>
+            {showText && <p>Email: {newAd.email}</p>}
+            {showText && <p>Phone Number: {newAd.phone}</p>}
+            {showText && <p>Address: {newAd.street}</p>}
+            {showText && <p>{newAd.postCode}</p>}
+          </div>
+          <div>
+            <Link to={"/editad/" + productId}>
+              <button>Edit the Ad</button>
+            </Link>
+            <button
+              onClick={() => {
+                handleDelete();
+                console.log("delete button clicked");
+              }}
+            >
+              Delete the Ad
+            </button>
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 export default NewAd;
