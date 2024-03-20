@@ -58,7 +58,7 @@ const NavBar = ({ theme, setTheme }) => {
         )}
         {!isFeatures && (
           <li>
-            <Link to="/features">Features</Link>
+            <Link to="/features">SecondHand</Link>
           </li>
         )}
         {!isAbout && (
