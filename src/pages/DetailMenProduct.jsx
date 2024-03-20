@@ -4,6 +4,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import { SlideShow } from "../components/SlideShow/SlideShow";
 import "./DetailWomanProduct.css";
+import NavBar from "../components/Navbar/NavBar";
 
 export const DetailMenProduct = () => {
   const [oneManProduct, setOneManProduct] = useState(null);
@@ -31,9 +32,14 @@ export const DetailMenProduct = () => {
   }
 
   return (
+    <>
+    <div>
+      <NavBar />
+    </div>
     <div className="detail-container">
-      <img src={oneManProduct.image} alt="" />
+      {/* <img src={oneManProduct.image} alt="" /> */}
       <SlideShow oneProduct={oneManProduct} />
     </div>
+    </>
   );
 };

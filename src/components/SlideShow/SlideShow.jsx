@@ -18,18 +18,27 @@ export const SlideShow = ({ oneProduct }) => {
   return (
     <>
       <div className="slideshow-container">
-        <button className="prev" onClick={goToPreviousSlide}>
-          &#10094;
-        </button>
-        {/* <div className="slide"> */}
-        <img
-          src={oneProduct.detailImg[currentSlide]}
-          alt={`Slide ${currentSlide + 1}`}
-        />
-        {/* </div> */}
-        <button className="next" onClick={goToNextSlide}>
-          &#10095;
-        </button>
+        <div className="slideMaimImg">
+          <img src={oneProduct.image} alt="" />
+        </div>
+        <div className="slideDetailImg">
+          <button className="prev" onClick={goToPreviousSlide}>
+            &#10094;
+          </button>
+          {/* <div className="slide"> */}
+          <img
+            src={oneProduct.detailImg[currentSlide]}
+            alt={`Slide ${currentSlide + 1}`}
+          />
+          {/* </div> */}
+          <button className="next" onClick={goToNextSlide}>
+            &#10095;
+          </button>
+        </div>
+        <div className="slideDescription">
+          <p>Description: ${oneProduct.description[currentSlide]}</p><br /><br />
+          <p>Price: ${oneProduct.price[currentSlide]}</p>
+        </div>
       </div>
     </>
   );

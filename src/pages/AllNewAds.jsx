@@ -3,48 +3,44 @@ import "./Ladies.css";
 import { Link } from "react-router-dom";
 import NavBar from "../components/Navbar/NavBar";
 
-export const Men = () => {
-  const [Men, setMen] = useState(null);
+const AllNewAds = () => {
+  const [allNew, setAllNew] = useState(null);
 
   useEffect(() => {
-    async function getMen() {
+    async function getAllNew() {
       try {
         const response = await fetch(
           //   "https://api.escuelajs.co/api/v1/products"
-          "http://localhost:5001/men"
+          "http://localhost:5001/new"
         );
         const parsedResponse = await response.json();
-        console.log("all Men are coming ", parsedResponse);
-        setMen(parsedResponse);
+        console.log("all new ads are coming ", parsedResponse);
+        setAllNew(parsedResponse);
       } catch (err) {
         console.log("error", err);
       }
     }
-    getMen();
+    getAllNew();
   }, []);
 
-  if (!Men) {
+  if (!allNew) {
     return <div>Loading...</div>;
   }
 
   return (
     <div>
       <div>
-        <div>
-          <NavBar/>
-        </div>
-
+        <NavBar />
+      </div>
+      <div>
         <div className="container1">
-          {Men.map((product) => (
+          {allNew.map((product) => (
             <div className="oneProductContainer" key={product.id}>
-              <h3>{product.title}</h3>
-              <Link to={"/men/" + product.id}>
-                {<img src={product.image} alt="" />}
+              <Link to={"/newads/" + product.id}>
+                <h3>{product.title}</h3>
+                {<img src={product.imageUrl} alt="" />}
+                <p></p>
               </Link>
-              {/* {product.images.length > 0 && (
-                <img src={product.images[0]} alt="" />
-              )} */}
-              <p>Price: {product.price}$</p>
             </div>
           ))}
         </div>
@@ -53,3 +49,5 @@ export const Men = () => {
     </div>
   );
 };
+
+export default AllNewAds;

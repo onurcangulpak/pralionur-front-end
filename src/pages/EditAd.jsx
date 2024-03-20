@@ -1,10 +1,14 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import "./CreateAd.css";
+import axios from "axios";
 import NavBar from "../components/Navbar/NavBar";
 
-export const CreateAd = () => {
+const EditAd = () => {
   const navigate = useNavigate();
+  const { productId } = useParams();
+  const [editAd, setEditAd] = useState(null);
+
   const [title, setTitle] = useState("");
   const [category, setCategory] = useState("");
   const [condition, setCondition] = useState("");
@@ -15,6 +19,20 @@ export const CreateAd = () => {
   const [phone, setPhone] = useState("");
   const [postCode, setPostCode] = useState("");
   const [street, setStreet] = useState("");
+
+  // ******************* get the information of the ad *****************
+  useEffect(() => {
+    const getProduct = async () => {
+      try {
+        const response = await axios(`http://localhost:5001/new/${productId}`);
+        console.log("here is details of edited product", response.data);
+        setEditAd(response.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getProduct();
+  }, [productId]);
 
   const handleCreateAd = async (event) => {
     event.preventDefault();
@@ -41,14 +59,27 @@ export const CreateAd = () => {
       });
       const parsed = await response.json();
       console.log("Newww Ad:", parsed);
-      navigate("/newads");
     } catch {
       (err) => {
         console.log(err);
       };
     }
+    // ******************* delete the old ad *******************
+    try {
+      const response = await fetch(`http://localhost:5001/new/${productId}`, {
+        method: "DELETE",
+      });
+      const parsed = await response.json();
+      console.log("You deleted the old ad successfully!", parsed);
+      navigate("/newads");
+    } catch (err) {
+      console.log(err);
+    }
   };
 
+  if (!editAd) {
+    return <div>Loading...</div>;
+  }
   return (
     <div>
       <div>
@@ -62,7 +93,7 @@ export const CreateAd = () => {
             <input
               name="Title"
               type="text"
-              placeholder="title"
+              placeholder={editAd.title}
               value={title}
               onChange={(event) => {
                 setTitle(event.target.value);
@@ -103,7 +134,7 @@ export const CreateAd = () => {
             <input
               name="Description"
               type="text"
-              placeholder="description"
+              placeholder={editAd.description}
               value={description}
               onChange={(event) => {
                 setDescription(event.target.value);
@@ -115,7 +146,7 @@ export const CreateAd = () => {
             <input
               name="Price"
               type="text"
-              placeholder="price"
+              placeholder={editAd.price}
               value={price}
               onChange={(event) => {
                 setPrice(event.target.value);
@@ -124,11 +155,11 @@ export const CreateAd = () => {
             EUR
           </label>
           <label>
-            Photo Url:
+            Image Url:
             <input
               type="text"
               name="imageUrl"
-              placeholder="Image URL"
+              placeholder={editAd.imageUrl}
               value={imageUrl}
               onChange={(event) => {
                 setImageUrl(event.target.value);
@@ -140,7 +171,7 @@ export const CreateAd = () => {
             <input
               name="Email"
               type="email"
-              placeholder="email"
+              placeholder={editAd.email}
               value={email}
               onChange={(event) => {
                 setEmail(event.target.value);
@@ -151,8 +182,8 @@ export const CreateAd = () => {
             Phone Number:
             <input
               name="Phone"
-              type="text"
-              placeholder="phone"
+              type="number"
+              placeholder={editAd.phone}
               value={phone}
               onChange={(event) => {
                 setPhone(event.target.value);
@@ -163,8 +194,8 @@ export const CreateAd = () => {
             Post Code:
             <input
               name="PostCode"
-              type="text"
-              placeholder="post code"
+              type="number"
+              placeholder={editAd.postCode}
               value={postCode}
               onChange={(event) => {
                 setPostCode(event.target.value);
@@ -176,16 +207,18 @@ export const CreateAd = () => {
             <input
               name="Street"
               type="text"
-              placeholder="street"
+              placeholder={editAd.street}
               value={street}
               onChange={(event) => {
                 setStreet(event.target.value);
               }}
             />
           </label>
-          <button type="submit">Place an ad</button>
+          <button type="submit">Edit your ad</button>
         </div>
       </form>
     </div>
   );
 };
+
+export default EditAd;

@@ -20,16 +20,7 @@ export const About = () => {
               euismod, elit quis rutrum scelerisque, nibh tellus consectetur
               dui, id placerat nisl massa in arcu. Suspendisse nec sapien non
               quam rhoncus blandit. Curabitur in dui ut elit vehicula mattis et
-              at lectus. Aliquam ut enim quam. Vestibulum in turpis et eros
-              consequat sagittis. Suspendisse potenti. Nulla efficitur eu ipsum
-              ut cursus. Aliquam venenatis aliquam ante non malesuada. Cras
-              ullamcorper congue porta. Nam id neque vehicula, ornare magna ac,
-              dictum nisl. Pellentesque dapibus diam vitae tellus euismod, et
-              pretium leo molestie. Nunc et imperdiet nibh. Suspendisse tellus
-              arcu, finibus eu facilisis sit amet, fermentum ut dolor. Aliquam
-              egestas bibendum augue, sit amet facilisis sem varius eget. Sed eu
-              aliquet diam, non eleifend sapien. Etiam ut massa elementum dui
-              ultrices molestie.
+              at lectus. Aliquam ut enim quam.
             </p>
           </div>
         </div>
@@ -42,16 +33,7 @@ export const About = () => {
               euismod, elit quis rutrum scelerisque, nibh tellus consectetur
               dui, id placerat nisl massa in arcu. Suspendisse nec sapien non
               quam rhoncus blandit. Curabitur in dui ut elit vehicula mattis et
-              at lectus. Aliquam ut enim quam. Vestibulum in turpis et eros
-              consequat sagittis. Suspendisse potenti. Nulla efficitur eu ipsum
-              ut cursus. Aliquam venenatis aliquam ante non malesuada. Cras
-              ullamcorper congue porta. Nam id neque vehicula, ornare magna ac,
-              dictum nisl. Pellentesque dapibus diam vitae tellus euismod, et
-              pretium leo molestie. Nunc et imperdiet nibh. Suspendisse tellus
-              arcu, finibus eu facilisis sit amet, fermentum ut dolor. Aliquam
-              egestas bibendum augue, sit amet facilisis sem varius eget. Sed eu
-              aliquet diam, non eleifend sapien. Etiam ut massa elementum dui
-              ultrices molestie.
+              at lectus. Aliquam ut enim quam.
             </p>
           </div>
         </div>

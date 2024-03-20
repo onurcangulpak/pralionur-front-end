@@ -50,6 +50,7 @@ const NavBar = ({ theme, setTheme }) => {
                   <div className="dropdown-content">
                     <Link to="/men">Men</Link>
                     <Link to="/ladies">Women</Link>
+                    <Link to="/newads">New Ads</Link>
                   </div>
                 )}
               </li>
@@ -58,7 +59,7 @@ const NavBar = ({ theme, setTheme }) => {
         )}
         {!isFeatures && (
           <li>
-            <Link to="/features">SecondHand</Link>
+            <Link to="/createad">Place an Ad</Link>
           </li>
         )}
         {!isAbout && (
