@@ -1,20 +1,21 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./CreateAd.css";
 
 export const CreateAd = () => {
+  const navigate = useNavigate();
   const [title, setTitle] = useState("");
   const [category, setCategory] = useState("");
   const [condition, setCondition] = useState("");
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState("");
-  const [pictures, setPictures] = useState("");
+  const [imageUrl, setImageUrl] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [postCode, setPostCode] = useState("");
   const [street, setStreet] = useState("");
-  const [selectedFiles, setSelectedFiles] = useState([]);
 
-  const handleCreateAd = (event) => {
+  const handleCreateAd = async (event) => {
     event.preventDefault();
     const newAd = {
       title,
@@ -22,29 +23,29 @@ export const CreateAd = () => {
       condition,
       description,
       price,
-      pictures,
+      imageUrl,
       email,
       phone,
       postCode,
       street,
     };
-    console.log("new Add", newAd);
-  };
 
-  const handleFileSelect = (event) => {
-    const files = Array.from(event.target.files);
-    setSelectedFiles(files);
-  };
-
-  const renderPreview = () => {
-    return selectedFiles.map((file, index) => (
-      <img
-        key={index}
-        src={URL.createObjectURL(file)}
-        alt={`Preview ${index}`}
-        style={{ maxWidth: "200px", marginRight: "10px" }}
-      />
-    ));
+    try {
+      const response = await fetch("http://localhost:5001/new", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(newAd),
+      });
+      const parsed = await response.json();
+      console.log("Newww Ad:", parsed);
+      navigate("/newads");
+    } catch {
+      (err) => {
+        console.log(err);
+      };
+    }
   };
 
   return (
@@ -53,7 +54,7 @@ export const CreateAd = () => {
         <h2>Ad Details</h2>
         <div className="formContainer">
           <label>
-            Title
+            Title:
             <input
               name="Title"
               type="text"
@@ -65,19 +66,20 @@ export const CreateAd = () => {
             />
           </label>
           <label>
-            Category
-            <input
+            Category:
+            <select
               name="category"
-              type="text"
-              placeholder="category"
-              value={category}
               onChange={(event) => {
                 setCategory(event.target.value);
               }}
-            />
+            >
+              <option value="men">Men</option>
+              <option value="women">Women</option>
+              <option value="children">Children</option>
+            </select>
           </label>
           <label>
-            Condition
+            Condition:
             <select
               name="condition"
               onChange={(event) => {
@@ -93,7 +95,7 @@ export const CreateAd = () => {
             </select>
           </label>
           <label>
-            Description
+            Description:
             <input
               name="Description"
               type="text"
@@ -105,31 +107,32 @@ export const CreateAd = () => {
             />
           </label>
           <label>
-            Price
+            Price:
             <input
               name="Price"
-              type="number"
+              type="text"
               placeholder="price"
               value={price}
               onChange={(event) => {
                 setPrice(event.target.value);
               }}
-            />
+            />{" "}
+            EUR
           </label>
           <label>
-            Pictures
+            Photo Url:
             <input
-              name="Pictures"
-              type="file"
-              placeholder="pictures"
-              accept="image/*"
-              value={pictures}
-              multiple
-              onChange={handleFileSelect}
+              type="text"
+              name="imageUrl"
+              placeholder="Image URL"
+              value={imageUrl}
+              onChange={(event) => {
+                setImageUrl(event.target.value);
+              }}
             />
           </label>
           <label>
-            Email
+            Email:
             <input
               name="Email"
               type="email"
@@ -141,10 +144,10 @@ export const CreateAd = () => {
             />
           </label>
           <label>
-            Phone Number
+            Phone Number:
             <input
               name="Phone"
-              type="number"
+              type="text"
               placeholder="phone"
               value={phone}
               onChange={(event) => {
@@ -153,10 +156,10 @@ export const CreateAd = () => {
             />
           </label>
           <label>
-            Post Code
+            Post Code:
             <input
               name="PostCode"
-              type="number"
+              type="text"
               placeholder="post code"
               value={postCode}
               onChange={(event) => {
@@ -165,7 +168,7 @@ export const CreateAd = () => {
             />
           </label>
           <label>
-            Street, No.
+            Street, No. :
             <input
               name="Street"
               type="text"
@@ -177,9 +180,6 @@ export const CreateAd = () => {
             />
           </label>
           <button type="submit">Place an ad</button>
-          <div id="previewContainer">
-            {selectedFiles.length > 0 && renderPreview()}
-          </div>
         </div>
       </form>
     </div>

@@ -10,6 +10,10 @@ import { Men } from "./pages/Men";
 import { DetailMenProduct } from "./pages/DetailMenProduct";
 import { CreateAd } from "./pages/CreateAd";
 import Ladies from "./pages/Ladies";
+import AllNewAds from "./pages/AllNewAds";
+import NewAd from "./pages/NewAd";
+import EditAd from "./pages/EditAd";
+
 
 function App() {
   
@@ -27,6 +31,9 @@ function App() {
         <Route path="/ladies/:productId" element={<DetailWomanProduct />} />
         <Route path="/men/:productId" element={<DetailMenProduct />} />
         <Route path="/createad" element={<CreateAd />} />{" "}
+        <Route path="/newads" element={<AllNewAds />} />
+        <Route path="/newads/:productId" element={<NewAd />} />
+        <Route path="/editad/:productId" element={<EditAd />} />
       </Routes>
     </div>
   );

@@ -32,7 +32,7 @@ export const DetailMenProduct = () => {
 
   return (
     <div className="detail-container">
-      <img src={oneManProduct.image} alt="" />
+      {/* <img src={oneManProduct.image} alt="" /> */}
       <SlideShow oneProduct={oneManProduct} />
     </div>
   );
