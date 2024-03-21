@@ -88,6 +88,7 @@ const NewAd = () => {
             >
               Delete the Ad
             </button>
+             
           </div>
         </div>
       </div>
