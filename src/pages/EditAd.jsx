@@ -7,6 +7,7 @@ const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5001";
 const EditAd = () => {
   const navigate = useNavigate();
   const { productId } = useParams();
+
   const [editAd, setEditAd] = useState(null);
 
   const [title, setTitle] = useState("");
@@ -19,14 +20,23 @@ const EditAd = () => {
   const [phone, setPhone] = useState("");
   const [postCode, setPostCode] = useState("");
   const [street, setStreet] = useState("");
-
-  // ******************* get the information of the ad *****************
+  // ******************* get the information of the ad **********************
   useEffect(() => {
     const getProduct = async () => {
       try {
         const response = await axios(`${API_URL}/new/${productId}`);
         console.log("here is details of edited product", response.data);
-        setEditAd(response.data);
+        setTitle(response.data.title);
+        setCategory(response.data.category)
+        setCondition(response.data.condtion)
+        setDescription(response.data.description)
+        setPrice(response.data.price)
+        setImageUrl(response.data.imageUrl)
+        setEmail(response.data.email)
+        setPhone(response.data.phone)
+        setPostCode(response.data.postCode)
+        setStreet(response.data.street)
+
       } catch (error) {
         console.log(error);
       }
@@ -77,9 +87,6 @@ const EditAd = () => {
     }
   };
 
-  if (!editAd) {
-    return <div>Loading...</div>;
-  }
   return (
     <div>
       <div>
@@ -92,10 +99,10 @@ const EditAd = () => {
             <input
               name="Title"
               type="text"
-              placeholder={editAd.title}
+              placeholder={title}
               value={title}
               onChange={(event) => {
-                setTitle(event.target.value);
+                  setTitle(event.target.value);
               }}
             />
           </label>
@@ -133,7 +140,7 @@ const EditAd = () => {
             <input
               name="Description"
               type="text"
-              placeholder={editAd.description}
+              placeholder={description}
               value={description}
               onChange={(event) => {
                 setDescription(event.target.value);
@@ -145,7 +152,7 @@ const EditAd = () => {
             <input
               name="Price"
               type="text"
-              placeholder={editAd.price}
+              placeholder={price}
               value={price}
               onChange={(event) => {
                 setPrice(event.target.value);
@@ -157,7 +164,7 @@ const EditAd = () => {
             <input
               type="text"
               name="imageUrl"
-              placeholder={editAd.imageUrl}
+              placeholder={imageUrl}
               value={imageUrl}
               onChange={(event) => {
                 setImageUrl(event.target.value);
@@ -169,7 +176,7 @@ const EditAd = () => {
             <input
               name="Email"
               type="email"
-              placeholder={editAd.email}
+              placeholder={email}
               value={email}
               onChange={(event) => {
                 setEmail(event.target.value);
@@ -181,7 +188,7 @@ const EditAd = () => {
             <input
               name="Phone"
               type="number"
-              placeholder={editAd.phone}
+              placeholder={phone}
               value={phone}
               onChange={(event) => {
                 setPhone(event.target.value);
@@ -193,7 +200,7 @@ const EditAd = () => {
             <input
               name="PostCode"
               type="number"
-              placeholder={editAd.postCode}
+              placeholder={postCode}
               value={postCode}
               onChange={(event) => {
                 setPostCode(event.target.value);
@@ -205,7 +212,7 @@ const EditAd = () => {
             <input
               name="Street"
               type="text"
-              placeholder={editAd.street}
+              placeholder={street}
               value={street}
               onChange={(event) => {
                 setStreet(event.target.value);

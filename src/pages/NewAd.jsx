@@ -2,8 +2,8 @@ import React from "react";
 import { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
-import "./DetailWomanProduct.css";
 import NavBar from "../components/Navbar/NavBar";
+import "./NewAd.css"
 
 const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5001";
 const NewAd = () => {
@@ -59,7 +59,7 @@ const NewAd = () => {
       <div>
         <NavBar />
       </div>
-      <div className="detail-container">
+      <div className="newAd-container">
         <div>
           <img src={newAd.imageUrl} alt="" />
         </div>
