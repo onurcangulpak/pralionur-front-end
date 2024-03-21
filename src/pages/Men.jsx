@@ -37,14 +37,14 @@ export const Men = () => {
         <div className="container1">
           {Men.map((product) => (
             <div className="oneProductContainer" key={product.id}>
-              <h3>{product.title}</h3>
+              <h3>{product.name}</h3>
               <Link to={"/men/" + product.id}>
                 {<img src={product.image} alt="" />}
               </Link>
               {/* {product.images.length > 0 && (
                 <img src={product.images[0]} alt="" />
               )} */}
-              <p>Price: {product.price}$</p>
+              {/* <p>Price: {product.price}$</p> */}
             </div>
           ))}
         </div>

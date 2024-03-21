@@ -34,11 +34,11 @@ const Ladies = () => {
         <div className="container1">
           {ladies.map((product) => (
             <div className="oneProductContainer" key={product.id}>
-              <h3>{product.title}</h3>
+              <h3>{product.name}</h3>
               <Link to={"/ladies/" + product.id}>
                 <img src={product.image} alt="" />
               </Link>
-              <p>Price: {product.price}$</p>
+              {/* <p>Price: {product.price}$</p> */}
             </div>
           ))}
         </div>

@@ -36,7 +36,7 @@ export const SlideShow = ({ oneProduct }) => {
           </button>
         </div>
         <div className="slideDescription">
-          <p>Description: ${oneProduct.description[currentSlide]}</p><br /><br />
+          <p>Description: <br />{oneProduct.description[currentSlide]}</p><br />
           <p>Price: ${oneProduct.price[currentSlide]}</p>
         </div>
       </div>
