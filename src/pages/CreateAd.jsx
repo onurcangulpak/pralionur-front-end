@@ -53,12 +53,6 @@ export const CreateAd = () => {
 
   return (
     <div>
-<<<<<<< HEAD
-      <NavBar />
-
-=======
-   
->>>>>>> 0ec318689df3edfb193d367f0366907876f7d080
       <form onSubmit={handleCreateAd}>
         <div className="formContainer">
           <div className="row">
