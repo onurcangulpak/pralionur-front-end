@@ -26,7 +26,10 @@ export const About = () => {
               at lectus. Aliquam ut enim quam.
             </p>
           </div>
+
+          <div className="social-media"></div>
         </div>
+
         <div className="Card">
           <div className="upper-container">
             <div className="image-container">

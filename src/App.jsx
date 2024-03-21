@@ -13,12 +13,43 @@ import Ladies from "./pages/Ladies";
 import AllNewAds from "./pages/AllNewAds";
 import NewAd from "./pages/NewAd";
 import EditAd from "./pages/EditAd";
+import Background from "./components/Background/Background";
 
 function App() {
+  const current_theme = localStorage.getItem("current_theme");
+  const [theme, setTheme] = useState(current_theme ? current_theme : "light");
+
+  useEffect(() => {
+    localStorage.setItem("current_theme", theme);
+  }, [theme]);
+
+  const data = [
+    { text1: "Stay Trendy", text2: "Discover the latest styles." },
+    { text1: "Great Deals", text2: "Find affordable fashion." },
+    { text1: "Express Yourself", text2: "Shop your unique style." },
+  ];
+  const [homeCount, setHomeCount] = useState(2);
+  const [playStatus, setPlayStatus] = useState(true);
+
   return (
     <div>
+      <div className={`container ${theme}`}>
+        <NavBar theme={theme} setTheme={setTheme} />
+        <Background playStatus={playStatus} homeCount={homeCount} />
+      </div>
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route
+          path="/"
+          element={
+            <Home
+              data={data}
+              homeCount={homeCount}
+              setHomeCount={setHomeCount}
+              setPlayStatus={setPlayStatus}
+              playStatus={playStatus}
+            />
+          }
+        />
         <Route path="/features" element={<Features />} />
         <Route path="/about" element={<About />} />
         <Route path="/ladies/" element={<Ladies />} />
