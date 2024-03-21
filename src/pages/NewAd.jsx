@@ -56,9 +56,7 @@ const NewAd = () => {
 
   return (
     <>
-      <div>
-        <NavBar />
-      </div>
+    
       <div className="newAd-container">
         <div>
           <img src={newAd.imageUrl} alt="" />

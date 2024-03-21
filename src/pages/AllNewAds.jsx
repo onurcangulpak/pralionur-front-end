@@ -32,9 +32,7 @@ const AllNewAds = () => {
 
   return (
     <div>
-      <div>
-        <NavBar />
-      </div>
+     
       <div>
         <div className="container1">
           {allNew.map((product) => (

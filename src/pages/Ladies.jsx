@@ -28,9 +28,7 @@ const Ladies = () => {
   return (
     <div>
       <div>
-        <div>
-          <NavBar />
-        </div>
+      
         <div className="container1">
           {ladies.map((product) => (
             <div className="oneProductContainer" key={product.id}>

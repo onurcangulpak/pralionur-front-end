@@ -89,9 +89,7 @@ const EditAd = () => {
 
   return (
     <div>
-      <div>
-        <NavBar />
-      </div>
+      
       <form onSubmit={handleCreateAd}>
         <div className="formContainer">
           <label>

@@ -32,11 +32,7 @@ const NavBar = ({ theme, setTheme }) => {
 
   return (
     <div className="navbar">
-      <img
-        src={theme === "light" ? logo_light : logo_dark}
-        alt=""
-        className="logo"
-      />
+      <img src={logo_dark} alt="" className="logo" />
       <ul className="nav-menu">
         {!isHome && (
           <li>
@@ -70,15 +66,12 @@ const NavBar = ({ theme, setTheme }) => {
       </ul>
 
       <div className="search-box">
-        <input type="text" placeholder="Search" />
-        <img
-          src={theme === "light" ? search_icon_light : search_icon_dark}
-          alt=""
-        />
+        <input type="text" placeholder="Search " />
+        <img src={search_icon_dark} alt="" />
       </div>
       <img
         onClick={toggle_mode}
-        src={theme === "light" ? toggle_light : toggle_dark}
+        src={toggle_dark}
         alt=""
         className="toggle-icon"
       />

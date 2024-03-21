@@ -7,28 +7,9 @@ import Background from "../components/Background/Background";
 import NavBar from "../components/Navbar/NavBar";
 import "./Home.css";
 
-const Home = () => {
-  const current_theme = localStorage.getItem("current_theme");
-  const [theme, setTheme] = useState(current_theme ? current_theme : "light");
-
-  useEffect(() => {
-    localStorage.setItem("current_theme", theme);
-  }, [theme]);
-
-  const data = [
-    { text1: "Stay Trendy", text2: "Discover the latest styles." },
-    { text1: "Great Deals", text2: "Find affordable fashion." },
-    { text1: "Express Yourself", text2: "Shop your unique style." },
-  ];
-  const [homeCount, setHomeCount] = useState(2);
-  const [playStatus, setPlayStatus] = useState(true);
-
+const Home = ({ data, homeCount, setHomeCount, setPlayStatus, playStatus }) => {
   return (
     <div>
-      <div className={`container ${theme}`}>
-        <NavBar theme={theme} setTheme={setTheme} />
-        <Background playStatus={playStatus} homeCount={homeCount} />
-      </div>
       <div className="home-text">
         <p> {data[homeCount].text1} </p>
         <p>{data[homeCount].text2}</p>
