@@ -80,7 +80,7 @@ export const CreateAd = () => {
           <div className="row">
             <div className="col-25">
               {" "}
-              <label for="category">Category:</label>
+              <label htmlFor="category">Category:</label>
             </div>
             <div className="col-75">
               {" "}

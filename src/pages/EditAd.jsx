@@ -50,7 +50,7 @@ const EditAd = () => {
     };
 
     try {
-      const response = await fetch("http://localhost:5001/new", {
+      const response = await fetch(`${API_URL}/new`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -66,7 +66,7 @@ const EditAd = () => {
     }
     // ******************* delete the old ad *******************
     try {
-      const response = await fetch(`http://localhost:5001/new/${productId}`, {
+      const response = await fetch(`${API_URL}/new/${productId}`, {
         method: "DELETE",
       });
       const parsed = await response.json();

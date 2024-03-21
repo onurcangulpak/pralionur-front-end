@@ -36,7 +36,7 @@ const NewAd = () => {
     console.log("id of ad to delete", productId);
     try {
       const response = await fetch(
-        `http://localhost:5001/new/${productId}`,
+        `${API_URL}/new/${productId}`,
 
         {
           method: "DELETE",
