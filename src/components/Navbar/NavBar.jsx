@@ -14,6 +14,11 @@ const NavBar = ({ theme, setTheme }) => {
 
   const toggleDropdown = () => {
     setShowDropdown(!showDropdown);
+    if (!showDropdown) {
+      setTimeout(() => {
+        setShowDropdown(false);
+      }, 8000);
+    }
   };
 
   const isHome = location.pathname === "/";
@@ -40,11 +45,7 @@ const NavBar = ({ theme, setTheme }) => {
         )}
         {!isProducts && (
           <li className="dropdown">
-            <span
-              className="dropdown-toggle"
-              onMouseEnter={toggleDropdown}
-              onMouseLeave={toggleDropdown}
-            >
+            <span className="dropdown-toggle" onClick={toggleDropdown}>
               Products
             </span>
             {showDropdown && (

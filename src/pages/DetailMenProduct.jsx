@@ -19,7 +19,7 @@ export const DetailMenProduct = () => {
   useEffect(() => {
     const getProduct = async () => {
       try {
-        const response = await axios(`http://localhost:5001/men/${productId}`);
+        const response = await axios(`${API_URL}/men/${productId}`);
         console.log("here is details of one man product", response.data);
         setOneManProduct(response.data);
       } catch (error) {

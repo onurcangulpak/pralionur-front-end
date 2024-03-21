@@ -18,7 +18,7 @@ const NewAd = () => {
   useEffect(() => {
     const getProduct = async () => {
       try {
-        const response = await axios(`http://localhost:5001/new/${productId}`);
+        const response = await axios(`${API_URL}/new/${productId}`);
         console.log("here is details of new product", response.data);
         setNewAd(response.data);
       } catch (error) {

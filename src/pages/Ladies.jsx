@@ -10,7 +10,7 @@ const Ladies = () => {
   useEffect(() => {
     async function getLadies() {
       try {
-        const response = await fetch("http://localhost:5001/ladies");
+        const response = await fetch(`${API_URL}/ladies`);
         const parsedResponse = await response.json();
         console.log("all Ladies are coming ", parsedResponse);
         setLadies(parsedResponse);

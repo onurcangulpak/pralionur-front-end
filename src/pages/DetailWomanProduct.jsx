@@ -18,9 +18,7 @@ export const DetailWomanProduct = () => {
   useEffect(() => {
     const getProduct = async () => {
       try {
-        const response = await axios(
-          `http://localhost:5001/ladies/${productId}`
-        );
+        const response = await axios(`${API_URL}/ladies/${productId}`);
         console.log("here is details of one woman product", response.data);
         setOneWomanProduct(response.data);
       } catch (error) {

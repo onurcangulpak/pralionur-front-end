@@ -24,7 +24,7 @@ const EditAd = () => {
   useEffect(() => {
     const getProduct = async () => {
       try {
-        const response = await axios(`http://localhost:5001/new/${productId}`);
+        const response = await axios(`${API_URL}/new/${productId}`);
         console.log("here is details of edited product", response.data);
         setEditAd(response.data);
       } catch (error) {
