@@ -3,6 +3,8 @@ import "./Ladies.css";
 import { Link } from "react-router-dom";
 import NavBar from "../components/Navbar/NavBar";
 
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5001";
+
 const AllNewAds = () => {
   const [allNew, setAllNew] = useState(null);
 
@@ -11,7 +13,8 @@ const AllNewAds = () => {
       try {
         const response = await fetch(
           //   "https://api.escuelajs.co/api/v1/products"
-          "http://localhost:5001/new"
+          `${API_URL}/new`
+          // "http://localhost:5001/new"
         );
         const parsedResponse = await response.json();
         console.log("all new ads are coming ", parsedResponse);

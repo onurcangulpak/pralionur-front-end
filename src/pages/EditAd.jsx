@@ -3,7 +3,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import "./CreateAd.css";
 import axios from "axios";
 import NavBar from "../components/Navbar/NavBar";
-
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5001";
 const EditAd = () => {
   const navigate = useNavigate();
   const { productId } = useParams();
@@ -24,7 +24,7 @@ const EditAd = () => {
   useEffect(() => {
     const getProduct = async () => {
       try {
-        const response = await axios(`http://localhost:5001/new/${productId}`);
+        const response = await axios(`${API_URL}/new/${productId}`);
         console.log("here is details of edited product", response.data);
         setEditAd(response.data);
       } catch (error) {
@@ -86,7 +86,6 @@ const EditAd = () => {
         <NavBar />
       </div>
       <form onSubmit={handleCreateAd}>
-        <h2>Ad Details</h2>
         <div className="formContainer">
           <label>
             Title:
@@ -152,7 +151,6 @@ const EditAd = () => {
                 setPrice(event.target.value);
               }}
             />{" "}
-            EUR
           </label>
           <label>
             Image Url:

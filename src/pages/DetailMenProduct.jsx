@@ -6,6 +6,8 @@ import { SlideShow } from "../components/SlideShow/SlideShow";
 import "./DetailWomanProduct.css";
 import NavBar from "../components/Navbar/NavBar";
 
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5001";
+
 export const DetailMenProduct = () => {
   const [oneManProduct, setOneManProduct] = useState(null);
 
@@ -17,7 +19,7 @@ export const DetailMenProduct = () => {
   useEffect(() => {
     const getProduct = async () => {
       try {
-        const response = await axios(`http://localhost:5001/men/${productId}`);
+        const response = await axios(`${API_URL}/men/${productId}`);
         console.log("here is details of one man product", response.data);
         setOneManProduct(response.data);
       } catch (error) {
@@ -33,13 +35,13 @@ export const DetailMenProduct = () => {
 
   return (
     <>
-    <div>
-      <NavBar />
-    </div>
-    <div className="detail-container">
-      {/* <img src={oneManProduct.image} alt="" /> */}
-      <SlideShow oneProduct={oneManProduct} />
-    </div>
+      <div>
+        <NavBar />
+      </div>
+      <div className="detail-container">
+        {/* <img src={oneManProduct.image} alt="" /> */}
+        <SlideShow oneProduct={oneManProduct} />
+      </div>
     </>
   );
 };

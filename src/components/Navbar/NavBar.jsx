@@ -7,27 +7,33 @@ import search_icon_dark from "../../assets/search-b.png";
 import toggle_light from "../../assets/night.png";
 import toggle_dark from "../../assets/day.png";
 import { Link, useLocation } from "react-router-dom";
+
 const NavBar = ({ theme, setTheme }) => {
   const location = useLocation();
-
   const [showDropdown, setShowDropdown] = useState(false);
 
   const toggleDropdown = () => {
     setShowDropdown(!showDropdown);
+    if (!showDropdown) {
+      setTimeout(() => {
+        setShowDropdown(false);
+      }, 8000);
+    }
   };
 
   const isHome = location.pathname === "/";
   const isProducts = location.pathname === "/products";
-  const isFeatures = location.pathname === "/features";
+  const isCreatead = location.pathname === "/createad";
   const isAbout = location.pathname === "/about";
 
   const toggle_mode = () => {
-    theme == "light" ? setTheme("dark") : setTheme("light");
+    theme === "light" ? setTheme("dark") : setTheme("light");
   };
+
   return (
     <div className="navbar">
       <img
-        src={theme == "light" ? logo_light : logo_dark}
+        src={theme === "light" ? logo_light : logo_dark}
         alt=""
         className="logo"
       />
@@ -38,26 +44,20 @@ const NavBar = ({ theme, setTheme }) => {
           </li>
         )}
         {!isProducts && (
-          <li>
-            <div className="dropdown">
-              <li
-                className="dropdown"
-                onMouseEnter={toggleDropdown}
-                onMouseLeave={toggleDropdown}
-              >
-                <span>Products</span>
-                {showDropdown && (
-                  <div className="dropdown-content">
-                    <Link to="/men">Men</Link>
-                    <Link to="/ladies">Women</Link>
-                    <Link to="/newads">New Ads</Link>
-                  </div>
-                )}
-              </li>
-            </div>
+          <li className="dropdown">
+            <span className="dropdown-toggle" onClick={toggleDropdown}>
+              Products
+            </span>
+            {showDropdown && (
+              <div className="dropdown-content">
+                <Link to="/men">Men</Link>
+                <Link to="/ladies">Women</Link>
+                <Link to="/newads">New Ads</Link>
+              </div>
+            )}
           </li>
         )}
-        {!isFeatures && (
+        {!isCreatead && (
           <li>
             <Link to="/createad">Place an Ad</Link>
           </li>
@@ -72,15 +72,13 @@ const NavBar = ({ theme, setTheme }) => {
       <div className="search-box">
         <input type="text" placeholder="Search" />
         <img
-          src={theme == "light" ? search_icon_light : search_icon_dark}
+          src={theme === "light" ? search_icon_light : search_icon_dark}
           alt=""
         />
       </div>
       <img
-        onClick={() => {
-          toggle_mode();
-        }}
-        src={theme == "light" ? toggle_light : toggle_dark}
+        onClick={toggle_mode}
+        src={theme === "light" ? toggle_light : toggle_dark}
         alt=""
         className="toggle-icon"
       />

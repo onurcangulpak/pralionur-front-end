@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
-import "./Home.css";
+
 import arrow_button from "../assets/arrow_btn.png";
 import play_icon from "../assets/play_icon.png";
 import pause_icon from "../assets/pause_icon.png";
 import Background from "../components/Background/Background";
 import NavBar from "../components/Navbar/NavBar";
+import "./Home.css";
 
 const Home = () => {
   const current_theme = localStorage.getItem("current_theme");
@@ -24,9 +25,9 @@ const Home = () => {
 
   return (
     <div>
-      <Background playStatus={playStatus} homeCount={homeCount} />
       <div className={`container ${theme}`}>
         <NavBar theme={theme} setTheme={setTheme} />
+        <Background playStatus={playStatus} homeCount={homeCount} />
       </div>
       <div className="home-text">
         <p> {data[homeCount].text1} </p>

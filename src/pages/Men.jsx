@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./Ladies.css";
 import { Link } from "react-router-dom";
 import NavBar from "../components/Navbar/NavBar";
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5001";
 
 export const Men = () => {
   const [Men, setMen] = useState(null);
@@ -10,8 +11,8 @@ export const Men = () => {
     async function getMen() {
       try {
         const response = await fetch(
-          //   "https://api.escuelajs.co/api/v1/products"
-          "http://localhost:5001/men"
+          `${API_URL}/men`
+          // "http://localhost:5001/men"
         );
         const parsedResponse = await response.json();
         console.log("all Men are coming ", parsedResponse);
@@ -31,7 +32,7 @@ export const Men = () => {
     <div>
       <div>
         <div>
-          <NavBar/>
+          <NavBar />
         </div>
 
         <div className="container1">

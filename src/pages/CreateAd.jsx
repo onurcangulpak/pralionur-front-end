@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./CreateAd.css";
 import NavBar from "../components/Navbar/NavBar";
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5001";
 
 export const CreateAd = () => {
   const navigate = useNavigate();
@@ -32,7 +33,8 @@ export const CreateAd = () => {
     };
 
     try {
-      const response = await fetch("http://localhost:5001/new", {
+      // const response = await fetch("http://localhost:5001/new", {
+      const response = await fetch(`${API_URL}/new`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -141,7 +143,7 @@ export const CreateAd = () => {
           <div className="row">
             <div className="col-25">
               {" "}
-              <label for="price">Price:</label>
+              <label>Price:</label>
             </div>
             <div className="col-75">
               <input

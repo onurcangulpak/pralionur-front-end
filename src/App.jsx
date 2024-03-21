@@ -14,14 +14,9 @@ import AllNewAds from "./pages/AllNewAds";
 import NewAd from "./pages/NewAd";
 import EditAd from "./pages/EditAd";
 
-
 function App() {
-  
-
   return (
     <div>
-     
-
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/features" element={<Features />} />
