@@ -11,7 +11,6 @@ export const Men = () => {
     async function getMen() {
       try {
         const response = await fetch(
-          //   "https://api.escuelajs.co/api/v1/products"
           `${API_URL}/men`
           // "http://localhost:5001/men"
         );

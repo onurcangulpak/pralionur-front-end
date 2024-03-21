@@ -18,7 +18,7 @@ const NavBar = ({ theme, setTheme }) => {
 
   const isHome = location.pathname === "/";
   const isProducts = location.pathname === "/products";
-  const isFeatures = location.pathname === "/features";
+  const isCreatead = location.pathname === "/createad";
   const isAbout = location.pathname === "/about";
 
   const toggle_mode = () => {
@@ -56,7 +56,7 @@ const NavBar = ({ theme, setTheme }) => {
             )}
           </li>
         )}
-        {!isFeatures && (
+        {!isCreatead && (
           <li>
             <Link to="/createad">Place an Ad</Link>
           </li>
