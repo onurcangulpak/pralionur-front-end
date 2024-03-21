@@ -1,34 +1,76 @@
-.about {
+.app-container {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
-  min-height: 100vh;
-  background-color: rgb(224, 101, 101);
-  padding-top: 50px;
+  height: 100vh;
+  background-color: #2f2d2e;
 }
 
-.profile {
+.card-container {
   display: flex;
-  justify-content: space-around;
-  align-items: center;
-  width: 80%;
-  margin-top: 30px;
+  gap: 150px;
 }
 
-.person1 img,
-.person2 img {
-  width: 200px;
-  height: 200px;
+.Card {
+  width: 300px;
+  height: 400px;
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0px 1px 10px 1px black;
+}
+.person-image {
+  width: 100px;
+  height: 100px;
+}
+.upper-container {
+  height: 100px;
+  background: linear-gradient(to left, #2d00f7, #ff0291);
+}
+
+.image-container img {
+  background: white;
+  width: 100px;
+  height: 100px;
   border-radius: 50%;
-  filter: drop-shadow(0px 0px 10px rgba(229, 237, 74, 0.5));
+  padding: 5px;
+  transform: translate(95px, 45px);
 }
 
-.about-onur {
-  display: flex;
-  justify-content: space-around;
+.Card img {
+  border: 2px solid #8e00b9;
 }
 
-.about-ali {
-  display: flex;
-  justify-content: space-around;
+.lower-container {
+  margin-top: 60px;
+  background: white;
+  text-align: center;
+  font-family: "Titillium Web", sans-serif;
+  height: calc(100% - 160px);
+}
+
+.lower-container h3,
+.lower-container h4,
+.lower-container p {
+  margin: 0;
+  padding: 0;
+}
+
+.lower-container h3 {
+  color: #2f2d2e;
+  font-weight: 600;
+  font-size: 1.5rem;
+}
+
+.lower-container h4 {
+  color: #8e00b9;
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+.lower-container p {
+  margin: 1rem;
+  font-weight: 600;
+  color: #2f2d2e;
+  font-size: 0.9rem;
+  text-align: justify;
 }

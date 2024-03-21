@@ -6,17 +6,20 @@ import person2Img from "../assets/person-2.png";
 
 export const About = () => {
   return (
-    <div className="about">
-      <NavBar />
-      <div className="profile">
-        <div className="person1">
-          <img src={person1Img} alt="First Person" />
-          <div>
-            <h3>Onur</h3>
+    <div className="app-container">
+      <div className="card-container">
+        <div className="Card">
+          <div className="upper-container">
+            <div className="image-container">
+              <img src={person1Img} alt="profile1" />
+            </div>
           </div>
-          <div className="about-onur">
+
+          <div className="lower-container">
+            <h3>Onurcan Gülpak</h3>
+            <h4>Web Developer</h4>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecena
               euismod, elit quis rutrum scelerisque, nibh tellus consectetur
               dui, id placerat nisl massa in arcu. Suspendisse nec sapien non
               quam rhoncus blandit. Curabitur in dui ut elit vehicula mattis et
@@ -24,12 +27,18 @@ export const About = () => {
             </p>
           </div>
         </div>
-        <div className="person2">
-          <img src={person2Img} alt="Second Person" />
-          <h3>Ali</h3>
-          <div className="about-ali">
+        <div className="Card">
+          <div className="upper-container">
+            <div className="image-container">
+              <img src={person2Img} alt="profile2" />
+            </div>
+          </div>
+
+          <div className="lower-container">
+            <h3>Aliakbar Torbatti</h3>
+            <h4>Web Developer</h4>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecena
               euismod, elit quis rutrum scelerisque, nibh tellus consectetur
               dui, id placerat nisl massa in arcu. Suspendisse nec sapien non
               quam rhoncus blandit. Curabitur in dui ut elit vehicula mattis et
