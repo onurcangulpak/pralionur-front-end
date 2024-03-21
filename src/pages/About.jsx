@@ -2,7 +2,7 @@ import React from "react";
 import NavBar from "../components/Navbar/NavBar";
 import "./About.css";
 import person1Img from "../assets/person-1.jpg";
-import person2Img from "../assets/person-2.png";
+import person2Img from "../assets/person-2.jpg";
 
 export const About = () => {
   return (
@@ -35,14 +35,15 @@ export const About = () => {
           </div>
 
           <div className="lower-container">
-            <h3>Aliakbar Torbatti</h3>
+            <h3>Aliakbar Torbati</h3>
             <h4>Web Developer</h4>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecena
-              euismod, elit quis rutrum scelerisque, nibh tellus consectetur
-              dui, id placerat nisl massa in arcu. Suspendisse nec sapien non
-              quam rhoncus blandit. Curabitur in dui ut elit vehicula mattis et
-              at lectus. Aliquam ut enim quam.
+              I'm currently passing Ironhack's web development bootcamp,
+              where I'm focusing on mastering React. This application is one of
+              my projects during this intensive program. With a passion for
+              creating user-friendly interfaces, I'm dedicated to advancing my
+              skills and utilizing this project as a stepping stone towards
+              achieving my career goals in web development.
             </p>
           </div>
         </div>

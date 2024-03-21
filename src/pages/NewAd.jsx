@@ -71,10 +71,10 @@ const NewAd = () => {
             <p>Description: <strong>{newAd.description}</strong></p>
             <p>Price: <strong>{newAd.price} $</strong></p>
             <button onClick={toggleText}>Click here to see the Connection ways</button>
-            {showText && <p>Email: {newAd.email}</p>}
-            {showText && <p>Phone Number: {newAd.phone}</p>}
-            {showText && <p>Address: {newAd.street}</p>}
-            {showText && <p>{newAd.postCode}</p>}
+            {showText && <p>Email: <strong>{newAd.email}</strong></p>}
+            {showText && <p>Phone Number: <strong>{newAd.phone}</strong></p>}
+            {showText && <p>Address: <strong>{newAd.street}</strong></p>}
+            {showText && <p>Post Code: <strong>{newAd.postCode}</strong></p>}
           </div>
           <div>
             <Link to={"/editad/" + productId}>
