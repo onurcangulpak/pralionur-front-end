@@ -35,9 +35,7 @@ export const DetailMenProduct = () => {
 
   return (
     <>
-      <div>
-        <NavBar />
-      </div>
+     
       <div className="detail-container">
         {/* <img src={oneManProduct.image} alt="" /> */}
         <SlideShow oneProduct={oneManProduct} />

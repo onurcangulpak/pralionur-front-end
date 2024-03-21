@@ -2,8 +2,8 @@ import React from "react";
 import { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
-import "./DetailWomanProduct.css";
 import NavBar from "../components/Navbar/NavBar";
+import "./NewAd.css"
 
 const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5001";
 const NewAd = () => {
@@ -36,7 +36,7 @@ const NewAd = () => {
     console.log("id of ad to delete", productId);
     try {
       const response = await fetch(
-        `http://localhost:5001/new/${productId}`,
+        `${API_URL}/new/${productId}`,
 
         {
           method: "DELETE",
@@ -56,25 +56,23 @@ const NewAd = () => {
 
   return (
     <>
-      <div>
-        <NavBar />
-      </div>
-      <div className="detail-container">
+    
+      <div className="newAd-container">
         <div>
           <img src={newAd.imageUrl} alt="" />
         </div>
         <div>
           <div>
-            <h2>{newAd.title}</h2>
-            <h3>{newAd.category}</h3>
-            <h3>{newAd.condition}</h3>
-            <h3>{newAd.description}</h3>
-            <h3>{newAd.price}</h3>
-            <button onClick={toggleText}>Connection ways</button>
-            {showText && <p>Email: {newAd.email}</p>}
-            {showText && <p>Phone Number: {newAd.phone}</p>}
-            {showText && <p>Address: {newAd.street}</p>}
-            {showText && <p>{newAd.postCode}</p>}
+            <p>Title: <strong>{newAd.title}</strong></p>
+            <p>Category: <strong>{newAd.category}</strong></p>
+            <p>Product Condition: <strong>{newAd.condition}</strong></p>
+            <p>Description: <strong>{newAd.description}</strong></p>
+            <p>Price: <strong>{newAd.price} $</strong></p>
+            <button onClick={toggleText}>Click here to see the Connection ways</button>
+            {showText && <p>Email: <strong>{newAd.email}</strong></p>}
+            {showText && <p>Phone Number: <strong>{newAd.phone}</strong></p>}
+            {showText && <p>Address: <strong>{newAd.street}</strong></p>}
+            {showText && <p>Post Code: <strong>{newAd.postCode}</strong></p>}
           </div>
           <div>
             <Link to={"/editad/" + productId}>
@@ -88,6 +86,7 @@ const NewAd = () => {
             >
               Delete the Ad
             </button>
+             
           </div>
         </div>
       </div>

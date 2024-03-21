@@ -31,9 +31,7 @@ export const Men = () => {
   return (
     <div>
       <div>
-        <div>
-          <NavBar />
-        </div>
+        
 
         <div className="container1">
           {Men.map((product) => (

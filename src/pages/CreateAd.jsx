@@ -53,8 +53,12 @@ export const CreateAd = () => {
 
   return (
     <div>
+<<<<<<< HEAD
       <NavBar />
 
+=======
+   
+>>>>>>> 0ec318689df3edfb193d367f0366907876f7d080
       <form onSubmit={handleCreateAd}>
         <div className="formContainer">
           <div className="row">
@@ -79,7 +83,7 @@ export const CreateAd = () => {
           <div className="row">
             <div className="col-25">
               {" "}
-              <label for="category">Category:</label>
+              <label htmlFor="category">Category:</label>
             </div>
             <div className="col-75">
               {" "}

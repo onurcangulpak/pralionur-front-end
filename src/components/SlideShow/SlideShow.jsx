@@ -18,7 +18,7 @@ export const SlideShow = ({ oneProduct }) => {
   return (
     <>
       <div className="slideshow-container">
-        <div className="slideMaimImg">
+        <div className="slideMainImg">
           <img src={oneProduct.image} alt="" />
         </div>
         <div className="slideDetailImg">
@@ -36,8 +36,8 @@ export const SlideShow = ({ oneProduct }) => {
           </button>
         </div>
         <div className="slideDescription">
-          <p>Description: <br />{oneProduct.description[currentSlide]}</p><br />
-          <p>Price: ${oneProduct.price[currentSlide]}</p>
+          <p>Description: <br /><strong>{oneProduct.description[currentSlide]}</strong></p><br />
+          <p>Price: <strong>{oneProduct.price[currentSlide]}$</strong></p>
         </div>
       </div>
     </>
