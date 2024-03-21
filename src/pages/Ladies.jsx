@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./Ladies.css";
 import { Link } from "react-router-dom";
 import NavBar from "../components/Navbar/NavBar";
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5001";
 
 const Ladies = () => {
   const [ladies, setLadies] = useState(null);
@@ -26,10 +27,9 @@ const Ladies = () => {
 
   return (
     <div>
-
       <div>
         <div>
-          <NavBar/>
+          <NavBar />
         </div>
         <div className="container1">
           {ladies.map((product) => (
