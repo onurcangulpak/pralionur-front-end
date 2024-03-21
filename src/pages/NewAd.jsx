@@ -65,12 +65,12 @@ const NewAd = () => {
         </div>
         <div>
           <div>
-            <h2>{newAd.title}</h2>
-            <h3>{newAd.category}</h3>
-            <h3>{newAd.condition}</h3>
-            <h3>{newAd.description}</h3>
-            <h3>{newAd.price}</h3>
-            <button onClick={toggleText}>Connection ways</button>
+            <p>Title: <strong>{newAd.title}</strong></p>
+            <p>Category: <strong>{newAd.category}</strong></p>
+            <p>Product Condition: <strong>{newAd.condition}</strong></p>
+            <p>Description: <strong>{newAd.description}</strong></p>
+            <p>Price: <strong>{newAd.price} $</strong></p>
+            <button onClick={toggleText}>Click here to see the Connection ways</button>
             {showText && <p>Email: {newAd.email}</p>}
             {showText && <p>Phone Number: {newAd.phone}</p>}
             {showText && <p>Address: {newAd.street}</p>}
