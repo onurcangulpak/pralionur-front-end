@@ -12,7 +12,8 @@ export const Men = () => {
       try {
         const response = await fetch(
           //   "https://api.escuelajs.co/api/v1/products"
-          "http://localhost:5001/men"
+          `${API_URL}/men`
+          // "http://localhost:5001/men"
         );
         const parsedResponse = await response.json();
         console.log("all Men are coming ", parsedResponse);
