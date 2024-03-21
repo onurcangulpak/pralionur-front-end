@@ -18,7 +18,7 @@ export const SlideShow = ({ oneProduct }) => {
   return (
     <>
       <div className="slideshow-container">
-        <div className="slideMaimImg">
+        <div className="slideMainImg">
           <img src={oneProduct.image} alt="" />
         </div>
         <div className="slideDetailImg">
