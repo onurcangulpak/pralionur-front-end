@@ -8,6 +8,7 @@
   min-height: 100%;
   object-fit: cover;
   z-index: -1;
+  margin-top: 90px;
 }
 
 @keyframes fadeIn {

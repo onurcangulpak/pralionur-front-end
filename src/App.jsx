@@ -14,6 +14,7 @@ import AllNewAds from "./pages/AllNewAds";
 import NewAd from "./pages/NewAd";
 import EditAd from "./pages/EditAd";
 import Background from "./components/Background/Background";
+import Footer from "./components/Footer/Footer";
 
 function App() {
   const current_theme = localStorage.getItem("current_theme");

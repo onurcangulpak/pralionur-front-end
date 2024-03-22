@@ -8,8 +8,13 @@
   z-index: 1000;
   position: fixed;
   top: 0;
+  background-color: rgba(184, 64, 64, 1); /* Remove alpha channel */
 }
 
+.light .navbar {
+  background: rgba(184, 64, 64, 1); /* Remove alpha channel */
+  color: #000; /* Adjust text color for light mode */
+}
 .logo {
   width: 160px;
   cursor: pointer;
@@ -37,7 +42,7 @@ ul li {
 .search-box {
   display: flex;
   align-items: center;
-  background: #000000;
+  background: #cd9c9c;
   padding: 10px 20px;
   border-radius: 50px;
 }
@@ -53,7 +58,7 @@ ul li {
 }
 
 .search-box input::placeholder {
-  color: #fff;
+  color: #000;
 }
 
 .search-box img {
@@ -71,7 +76,7 @@ ul li {
 }
 
 .dark .search-box input::placeholder {
-  color: #222;
+  color: #000;
 }
 .dropdown {
   position: relative;

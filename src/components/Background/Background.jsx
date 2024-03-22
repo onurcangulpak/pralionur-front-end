@@ -13,7 +13,7 @@ const Background = ({ playStatus, homeCount }) => {
       </video>
     );
   } else if (homeCount === 0) {
-    return <img src={image1} className="background fade-in" />;
+    return <img src={image1} className="background- fade-in" />;
   } else if (homeCount === 1) {
     return <img src={image2} className="background fade-in" />;
   } else if (homeCount === 2) {

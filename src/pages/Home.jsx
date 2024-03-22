@@ -6,6 +6,7 @@ import pause_icon from "../assets/pause_icon.png";
 import Background from "../components/Background/Background";
 import NavBar from "../components/Navbar/NavBar";
 import "./Home.css";
+import Footer from "../components/Footer/Footer";
 
 const Home = ({ data, homeCount, setHomeCount, setPlayStatus, playStatus }) => {
   return (
@@ -39,9 +40,9 @@ const Home = ({ data, homeCount, setHomeCount, setPlayStatus, playStatus }) => {
             src={playStatus ? pause_icon : play_icon}
             alt=""
           />
-          <p>See the video</p>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };

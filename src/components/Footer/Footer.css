@@ -1,0 +1,19 @@
+.footer {
+  background-color: rgba(184, 64, 64, 0.8); /* Match the color with navbar */
+  color: #fff;
+  padding: 5px 0; /* Adjust padding to reduce height */
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  max-height: 15px; /* Limit the height of the footer */
+  overflow: hidden; /* Hide any content that exceeds the height */
+  display: flex; /* Use flexbox layout */
+  justify-content: center; /* Center items horizontally */
+}
+
+.contact-info h2 {
+  font-size: 10px; /* Decrease font size for h2 */
+  margin-bottom: 5px;
+  line-height: 1;
+}
