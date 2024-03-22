@@ -8,12 +8,12 @@
   z-index: 1000;
   position: fixed;
   top: 0;
-  background-color: rgba(184, 64, 64, 1); /* Remove alpha channel */
+  background-color: rgba(184, 64, 64, 1);
 }
 
 .light .navbar {
-  background: rgba(184, 64, 64, 1); /* Remove alpha channel */
-  color: #000; /* Adjust text color for light mode */
+  background: rgba(184, 64, 64, 1);
+  color: #000;
 }
 .logo {
   width: 160px;

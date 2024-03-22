@@ -255,11 +255,6 @@ export const CreateAd = () => {
           <button type="submit">Place an ad</button>
         </div>
       </form>
-
-      <div>
-        {" "}
-        <Footer />{" "}
-      </div>
     </div>
   );
 };

@@ -62,6 +62,7 @@ function App() {
         <Route path="/newads/:productId" element={<NewAd />} />
         <Route path="/editad/:productId" element={<EditAd />} />
       </Routes>
+      <Footer />
     </div>
   );
 }
